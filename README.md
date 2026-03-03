@@ -1,16 +1,98 @@
-# React + Vite
+# React News
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple news web app built with React and Vite that fetches top headlines from NewsAPI and displays them by category.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Browse top US headlines
+- Switch categories from the navbar:
+  - General
+  - Technology
+  - Business
+  - Health
+  - Sports
+  - Entertainment
+- Loading spinner while articles are being fetched
+- Fallback image and fallback description for missing article data
+- External "Read More" link for each article
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React 19
+- Vite 7
+- Bootstrap 5 (via CDN)
+- NewsAPI (`/v2/top-headlines` endpoint)
 
-## Expanding the ESLint configuration
+## Prerequisites
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Node.js 18+ (recommended latest LTS)
+- npm
+- A NewsAPI key from [https://newsapi.org](https://newsapi.org)
+
+## Getting Started
+
+1. Clone the repository:
+
+	```bash
+	git clone <your-repo-url>
+	cd react-news
+	```
+
+2. Install dependencies:
+
+	```bash
+	npm install
+	```
+
+3. Create a `.env` file in the project root and add your API key:
+
+	```env
+	VITE_API_KEY=your_newsapi_key_here
+	```
+
+4. Start the development server:
+
+	```bash
+	npm run dev
+	```
+
+5. Open the local URL shown in terminal (usually `http://localhost:5173`).
+
+## Available Scripts
+
+- `npm run dev` - Starts Vite dev server
+- `npm run build` - Builds the app for production
+- `npm run preview` - Previews the production build
+- `npm run lint` - Runs ESLint
+
+## Project Structure
+
+```text
+react-news/
+├── public/
+├── src/
+│   ├── Components/
+│   │   ├── Navbar.jsx
+│   │   ├── NewsBoard.jsx
+│   │   └── NewsItem.jsx
+│   ├── App.jsx
+│   ├── main.jsx
+│   ├── App.css
+│   └── index.css
+├── index.html
+├── package.json
+└── vite.config.js
+```
+
+## How It Works
+
+- `App.jsx` stores the selected category in state.
+- `Navbar.jsx` updates that category when a menu item is clicked.
+- `NewsBoard.jsx` watches category changes, calls NewsAPI, and renders article cards.
+- `NewsItem.jsx` renders a single article card.
+
+## Notes
+
+- This app currently fetches headlines for `country=us`.
+- The NewsAPI key is required at runtime through Vite env variables.
+- Free NewsAPI plans may have request limits.
