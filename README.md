@@ -1,4 +1,4 @@
-# React News
+# NewsFlow
 
 A simple news web app built with React and Vite that fetches top headlines from NewsAPI and displays them by category.
 
@@ -35,7 +35,7 @@ A simple news web app built with React and Vite that fetches top headlines from 
 
 	```bash
 	git clone <your-repo-url>
-	cd react-news
+	cd NewsFlow
 	```
 
 2. Install dependencies:
@@ -68,7 +68,7 @@ A simple news web app built with React and Vite that fetches top headlines from 
 ## Project Structure
 
 ```text
-react-news/
+NewsFlow/
 ├── public/
 ├── src/
 │   ├── Components/
